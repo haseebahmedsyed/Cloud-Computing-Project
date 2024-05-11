@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "http://host.docker.internal:5000",
+  "proxy": "http://node-api:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
