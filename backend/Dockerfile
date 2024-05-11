@@ -6,9 +6,7 @@ COPY package.json .
 
 RUN npm install
 
-COPY env . 
-
-COPY ./backend/ .
+COPY . .
 
 EXPOSE 5000
 

@@ -8,6 +8,7 @@ import orderRoutes from "./Routes/orderRoutes.js"
 import uploadRoutes from "./Routes/uploadRoutes.js"
 import { notFound, errorHandler } from "./middleware/error.js"
 import morgan from "morgan"
+import cors from 'cors'
 
 dotenv.config()
 
@@ -45,9 +46,10 @@ app.get("/api/config/paypal", (req, res) => res.send(process.env.PAYPAL_CLIENT))
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
+app.use(cors())
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT/* || 5000*/
 
 app.listen(PORT, console.log(`App is running in ${process.env.NODE_ENV} mode on port ${PORT}`))
